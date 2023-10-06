@@ -82,7 +82,7 @@ resource "azurerm_linux_web_app" "contactBookWebApp" {
   connection_string {
     name = "DefaultConnection"
     type = "SQLAzure"
-    value = "Data Source=tcp:contact-book-75210.database.windows.net,1433;Initial Catalog=${azurerm_mssql_database.ContactBookDB.name};User ID=${azurerm_mssql_server.contactBookServer.administrator_login};Password=${azurerm_mssql_server.contactBookServer.administrator_login_password};Trusted_Connection=False; MultipleActiveResultSets=True;" 
+    value = "Data Source=tcp:contact-book-${random_integer.ri.result}.database.windows.net,1433;Initial Catalog=${azurerm_mssql_database.ContactBookDB.name};User ID=${azurerm_mssql_server.contactBookServer.administrator_login};Password=${azurerm_mssql_server.contactBookServer.administrator_login_password};Trusted_Connection=False; MultipleActiveResultSets=True;" 
   }
 
   site_config {
