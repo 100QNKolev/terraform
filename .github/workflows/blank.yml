@@ -64,6 +64,7 @@ jobs:
         run: |
           cd ./
           # Check that all Terraform configuration files adhere to a canonical format
+          terraform fmt -recursive
           terraform fmt -check -recursive
 
       - name: Validate Terraform Files
